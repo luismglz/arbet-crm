@@ -43,14 +43,14 @@ export const Form = ({ customer }) => {
       <div className="mb-4">
         <label
           className="text-gray-800"
-          htmlFor="company"
+          htmlFor="country"
         >Country:</label>
         <select
-          id="company"
+          id="country"
           type="text"
           className="mt-2 block w-full p-3 bg-gray-50"
-          placeholder="Enter customer's company"
-          name="company">
+          placeholder="Enter customer's country"
+          name="country">
           <option disabled={true} defaultValue={true}>Select customer's country</option>
           <option value='United States'>United States</option>
           <option value='Japan'>Japan</option>

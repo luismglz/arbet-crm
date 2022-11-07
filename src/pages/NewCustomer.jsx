@@ -2,8 +2,10 @@ import React from 'react'
 import { useNavigate, Form } from 'react-router-dom'
 import {Form as CustomerForm} from '../components/Form'
 
-export function action(){
-  console.log('here action')
+export async function action({request}){
+  const formData = await request.formData()
+  const data = Object.fromEntries(formData)
+  console.log(data);
 }
 
 
