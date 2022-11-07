@@ -1,4 +1,4 @@
-const Form = ({ customer }) => {
+export const Form = ({ customer }) => {
   return (
     <>
       <div className="mb-4">
@@ -51,7 +51,7 @@ const Form = ({ customer }) => {
           className="mt-2 block w-full p-3 bg-gray-50"
           placeholder="Enter customer's company"
           name="company">
-          <option disabled selected>Select customer's country</option>
+          <option disabled={true} defaultValue={true}>Select customer's country</option>
           <option value='United States'>United States</option>
           <option value='Japan'>Japan</option>
           <option value='India'>India</option>
@@ -109,5 +109,3 @@ const Form = ({ customer }) => {
     </>
   )
 }
-
-export default Form
