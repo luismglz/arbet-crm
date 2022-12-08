@@ -8,7 +8,6 @@ import Customer  from '../components/Customer';
 
 export function loader() {
   const customers = getCustomers();
-
   return customers
 }
 
