@@ -1,11 +1,15 @@
 import React from 'react'
 import { useLoaderData } from 'react-router-dom'
-import { Customers } from '../services/utils/Customers';
+import {getCustomers} from '../data/Customers'
 import Customer  from '../components/Customer';
 
-export function loader() {
+//useActionData return form actions data
+//useLoader get to responses
 
-  return Customers;
+export function loader() {
+  const customers = getCustomers();
+
+  return customers
 }
 
 export const Index = () => {

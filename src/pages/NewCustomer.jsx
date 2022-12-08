@@ -6,12 +6,19 @@ import Error from '../components/Error'
 export async function action({request}){
   const formData = await request.formData()
   const data = Object.fromEntries(formData)
+  const email = formData.get('email');
 
   //validate
   const errors = [];
   if(Object.values(data).includes('')){
     errors.push('All fields are required')
   }
+
+  let regexEmail = new RegExp("([!#-'*+/-9=?A-Z^-~-]+(\.[!#-'*+/-9=?A-Z^-~-]+)*|\"\(\[\]!#-[^-~ \t]|(\\[\t -~]))+\")@([!#-'*+/-9=?A-Z^-~-]+(\.[!#-'*+/-9=?A-Z^-~-]+)*|\[[\t -Z^-~]*])");
+
+  !regexEmail.test(email) && errors.push('Email is not valid')
+
+
   
   return Object.keys(errors).length && errors
 }
@@ -37,6 +44,7 @@ const NewCustomer = () => {
       <div className='bg-white shadow rounded-md  md:w-3/4 mx-auto px-5 py-10 mt-20'>
         {errors?.length && errors.map((error, i)=><Error key={i}>{error}</Error>)}
         <Form
+          noValidate
           method='post'>
         <CustomerForm />
         <input
