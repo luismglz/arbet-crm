@@ -1,6 +1,6 @@
 import React from 'react'
 import { useLoaderData } from 'react-router-dom'
-import {getCustomers} from '../data/Customers'
+import {getCustomers} from '../data/customers'
 import Customer  from '../components/Customer';
 
 //useActionData return form actions data

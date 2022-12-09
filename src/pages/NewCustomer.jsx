@@ -1,7 +1,8 @@
 import React from 'react'
-import { useNavigate, Form, useActionData } from 'react-router-dom'
+import { useNavigate, Form, useActionData, redirect } from 'react-router-dom'
 import {Form as CustomerForm} from '../components/Form'
 import Error from '../components/Error'
+import {addCustomer} from '../data/customers'
 
 export async function action({request}){
   const formData = await request.formData()
@@ -18,9 +19,13 @@ export async function action({request}){
 
   !regexEmail.test(email) && errors.push('Email is not valid')
 
+  if(Object.keys(errors).length){
+    return errors;
+  }
 
-  
-  return Object.keys(errors).length && errors
+  await addCustomer(data)
+
+  return redirect('/')
 }
 
 

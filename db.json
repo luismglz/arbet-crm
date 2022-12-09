@@ -134,6 +134,16 @@
       "email": "shainaw@azrieli.il",
       "company": "Azrieli Group Ltd.",
       "country": "Israel"
+    },
+    {
+      "firstname": "Fumiko",
+      "surname": "Kondo",
+      "company": "LeapMind",
+      "country": "Japan",
+      "email": "kondof@leapmind.co.jp",
+      "phone": 8142895580,
+      "notas": "Customer need service",
+      "id": 16
     }
   ]
 }
