@@ -22,7 +22,8 @@ const router = createBrowserRouter([
       {
         path: '/customers',
         element: <NewCustomer />,
-        action: newCustomerAction
+        action: newCustomerAction,
+        errorElement: <Error/>
       },
       {
         path: '/customers/:customerId/',

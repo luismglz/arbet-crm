@@ -12,6 +12,7 @@ export const Form = ({ customer }) => {
           className="mt-2 block w-full p-3 bg-gray-50"
           placeholder="Enter customer's first name"
           name="firstname"
+          defaultValue={customer?.firstname}
         />
       </div>
       <div className="mb-4">
@@ -25,6 +26,7 @@ export const Form = ({ customer }) => {
           className="mt-2 block w-full p-3 bg-gray-50"
           placeholder="Enter customer's surname"
           name="surname"
+          defaultValue={customer?.surname}
         />
       </div>
       <div className="mb-4">
@@ -38,6 +40,7 @@ export const Form = ({ customer }) => {
           className="mt-2 block w-full p-3 bg-gray-50"
           placeholder="Enter customer's company"
           name="company"
+          defaultValue={customer?.company}
         />
       </div>
       <div className="mb-4">
@@ -50,8 +53,9 @@ export const Form = ({ customer }) => {
           type="text"
           className="mt-2 block w-full p-3 bg-gray-50"
           placeholder="Enter customer's country"
-          name="country">
-          <option disabled={true} defaultValue={true}>Select customer's country</option>
+          name="country"
+          defaultValue={customer?.country}>
+          <option disabled={true} >Select customer's country</option>
           <option value='United States'>United States</option>
           <option value='Japan'>Japan</option>
           <option value='India'>India</option>
@@ -75,6 +79,7 @@ export const Form = ({ customer }) => {
           className="mt-2 block w-full p-3 bg-gray-50"
           placeholder="Enter customer's email"
           name="email"
+          defaultValue={customer?.email}
         />
       </div>
 
@@ -89,6 +94,7 @@ export const Form = ({ customer }) => {
           className="mt-2 block w-full p-3 bg-gray-50"
           placeholder="Enter customer's phone number"
           name="phone"
+          defaultValue={customer?.phone}
         />
       </div>
 
@@ -103,7 +109,8 @@ export const Form = ({ customer }) => {
           type="text"
           className="mt-2 block w-full p-3 bg-gray-50 h-40 align-self"
           placeholder="Enter customer's additional notes"
-          name="notas"
+          name="notes"
+          defaultValue={customer?.notes}
         />
       </div>
     </>
