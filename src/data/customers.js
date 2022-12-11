@@ -4,6 +4,12 @@ export async function getCustomers(){
   return result;
 }
 
+export async function getCustomerById(id) {
+  const response = await fetch(`${import.meta.env.VITE_API_URL}/${id}`);
+  const result = await response.json();
+  return result;
+}
+
 export async function addCustomer(data){
 
   try {

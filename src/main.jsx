@@ -1,38 +1,45 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import './index.css'
-import {createBrowserRouter, RouterProvider} from 'react-router-dom'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Layout from './components/Layout'
-import NewCustomer,{action as newCustomerAction} from './pages/NewCustomer'
-import Index, {loader as customersLoader} from './pages/Index'
+import NewCustomer, { action as newCustomerAction } from './pages/NewCustomer'
+import EditCustomer, { loader as editCustomerLoader } from './pages/EditCustomer'
+import Index, { loader as customersLoader } from './pages/Index'
 import Error from './pages/Error'
 
 const router = createBrowserRouter([
   {
-    path:'/',
-    element:<Layout />,
+    path: '/',
+    element: <Layout />,
     children: [
       {
         index: true,
-        element: <Index/>,
+        element: <Index />,
         loader: customersLoader,
-        errorElement:<Error/>
+        errorElement: <Error />
       },
       {
-        path: '/customers/new',
-        element: <NewCustomer/>,
+        path: '/customers',
+        element: <NewCustomer />,
         action: newCustomerAction
+      },
+      {
+        path: '/customers/:customerId/',
+        element: <EditCustomer />,
+        loader: editCustomerLoader,
+        errorElement: <Error/>
       }
     ]
   },
   {
-    path:'/*',
-    element:<h1 className='text-6xl'>404</h1>
+    path: '/*',
+    element: <h1 className='text-6xl'>404</h1>
   },
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router}/>
+    <RouterProvider router={router} />
   </React.StrictMode>
 )

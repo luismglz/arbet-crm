@@ -1,8 +1,10 @@
 import React from 'react'
+import {useNavigate} from 'react-router-dom'
 
 const Customer = ({customer}) => {
 
-  let { firstname, surname, phone, email, company, country } = customer
+  const navigate = useNavigate()
+  let { id, firstname, surname, phone, email, company, country } = customer
 
   return (
     <tr className='border-b'>
@@ -30,6 +32,7 @@ const Customer = ({customer}) => {
         <button
           type='button'
           className='text-blue-700 hover:text-blue-600 uppercase font-bold text-xs'
+          onClick={()=> navigate(`/customers/${id}`)}
         >Edit</button>
         <button
           type='button'
