@@ -10,12 +10,28 @@ export async function getCustomerById(id) {
   return result;
 }
 
-export async function addCustomer(data){
+export async function addCustomer(data) {
 
   try {
-   const response = await fetch(
-    import.meta.env.VITE_API_URL,{
+    const response = await fetch(
+      import.meta.env.VITE_API_URL, {
       method: 'POST',
+      body: JSON.stringify(data),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+    await response.json()
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export async function updateCustomer(id, data){
+  try {
+   const response = await fetch(
+     `${import.meta.env.VITE_API_URL}/${id}`,{
+      method: 'PUT',
       body: JSON.stringify(data),
       headers:{
         'Content-Type': 'application/json'
@@ -24,5 +40,19 @@ export async function addCustomer(data){
     await response.json()
   } catch (error) {
      console.log(error);
+  }
+}
+
+
+
+export async function deleteCustomer(id) {
+  try {
+    const response = await fetch(
+      `${import.meta.env.VITE_API_URL}/${id}`, {
+      method: 'DELETE',
+    })
+    await response.json()
+  } catch (error) {
+    console.log(error);
   }
 }

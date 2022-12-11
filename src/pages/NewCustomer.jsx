@@ -34,7 +34,6 @@ const NewCustomer = () => {
   const errors = useActionData();
   const navigate = useNavigate();
 
-  console.log(errors);
 
   return (
     <>

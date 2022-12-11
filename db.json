@@ -1,22 +1,24 @@
 {
   "customers": [
     {
-      "id": 1,
       "firstname": "Natsumi",
       "surname": "Minamoto",
-      "phone": 1773371207,
-      "email": "nminamoto@restar.co.jp",
       "company": "RESTAR",
-      "country": "Japan"
+      "country": "Japan",
+      "email": "nminamoto@restar.co.jp",
+      "phone": "1773371207",
+      "notes": " ",
+      "id": 1
     },
     {
-      "id": 2,
       "firstname": "Haruka",
       "surname": "Takahashi",
-      "phone": 6112895580,
-      "email": "haruka000@monsterlab.com",
       "company": "monsterlab",
-      "country": "Japan"
+      "country": "Japan",
+      "email": "haruka000@monsterlab.com",
+      "phone": "6112895590",
+      "notes": " ",
+      "id": 2
     },
     {
       "id": 3,
@@ -125,15 +127,6 @@
       "email": "mtrevino@inbursa.com",
       "company": "Grupo Inbursa",
       "country": "Mexico"
-    },
-    {
-      "id": 15,
-      "firstname": "Shaina",
-      "surname": "Weinbaum",
-      "phone": 7258735352,
-      "email": "shainaw@azrieli.il",
-      "company": "Azrieli Group Ltd.",
-      "country": "Israel"
     },
     {
       "firstname": "Fumiko",

@@ -4,9 +4,10 @@ import './index.css'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Layout from './components/Layout'
 import NewCustomer, { action as newCustomerAction } from './pages/NewCustomer'
-import EditCustomer, { loader as editCustomerLoader } from './pages/EditCustomer'
+import EditCustomer, { loader as editCustomerLoader, action as editCustomerAction } from './pages/EditCustomer'
 import Index, { loader as customersLoader } from './pages/Index'
 import Error from './pages/Error'
+import { action as deleteCustomerAction} from './components/Customer'
 
 const router = createBrowserRouter([
   {
@@ -29,7 +30,12 @@ const router = createBrowserRouter([
         path: '/customers/:customerId/',
         element: <EditCustomer />,
         loader: editCustomerLoader,
-        errorElement: <Error/>
+        errorElement: <Error/>,
+        action: editCustomerAction
+      },
+      {
+        path: '/customers/:customerId/delete',
+        action: deleteCustomerAction
       }
     ]
   },

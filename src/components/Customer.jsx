@@ -1,5 +1,11 @@
 import React from 'react'
-import {useNavigate} from 'react-router-dom'
+import {useNavigate, Form, redirect} from 'react-router-dom'
+import {deleteCustomer} from '../data/customers'
+
+export async function action({params}){
+  await deleteCustomer(params.customerId)
+  return redirect('/')
+}
 
 const Customer = ({customer}) => {
 
@@ -34,10 +40,19 @@ const Customer = ({customer}) => {
           className='text-blue-700 hover:text-blue-600 uppercase font-bold text-xs'
           onClick={()=> navigate(`/customers/${id}`)}
         >Edit</button>
-        <button
-          type='button'
-          className='text-red-600 hover:text-red-700 uppercase font-bold text-xs'
-        >Delete</button>
+
+        <Form
+        method='POST'
+          action={`/customers/${id}/delete`}
+          onSubmit={(e)=> {
+            !confirm('Are you sure you want to delete customer?') && e.preventDefault()
+          }}>
+          <button
+            type='submit'
+            className='text-red-600 hover:text-red-700 uppercase font-bold text-xs'
+          >Delete</button>
+        </Form>
+        
       </td>
     </tr>
   )
